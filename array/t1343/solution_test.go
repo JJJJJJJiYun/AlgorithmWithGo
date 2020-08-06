@@ -1,4 +1,4 @@
-package _343
+package t1343
 
 import (
 	"fmt"

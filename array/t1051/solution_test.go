@@ -1,4 +1,4 @@
-package _051
+package t1051
 
 import (
 	"fmt"
