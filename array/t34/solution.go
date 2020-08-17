@@ -10,10 +10,14 @@ func searchRange(nums []int, target int) []int {
 	if len(nums) == 0 {
 		return res
 	}
-	left, right := 0, len(nums)
 	// 二分查找最左边界
+	// 每次搜索的范围为[left,right)
+	// 结束条件的选择是搜索范围为空
+	// 所以这里是当 left == right 时结束
+	left, right := 0, len(nums)
 	for left < right {
 		mid := left + (right-left)/2
+		// 每次right和left的变化其实就是将mid剥离出搜索范围
 		if nums[mid] >= target {
 			right = mid
 		} else {
@@ -23,6 +27,7 @@ func searchRange(nums []int, target int) []int {
 	if left < len(nums) && nums[left] == target {
 		res[0] = left
 	}
+	// 二分查找最右边界
 	left, right = 0, len(nums)
 	for left < right {
 		mid := left + (right-left)/2
