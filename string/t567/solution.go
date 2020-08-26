@@ -1,5 +1,9 @@
 package t567
 
+// 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
+// 换句话说，第一个字符串的排列之一是第二个字符串的子串。
+
+// 滑动窗口
 func checkInclusion(s1 string, s2 string) bool {
 	left, right := 0, 0
 	r1, r2 := []rune(s1), []rune(s2)
