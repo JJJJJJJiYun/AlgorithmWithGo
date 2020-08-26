@@ -1,5 +1,8 @@
 package t46
 
+// 无重复数字数组的全排列
+
+// 回溯
 func permute(nums []int) [][]int {
 	result := make([][]int, 0)
 	// 对于匿名函数的递归调用，需要先声明变量完成绑定
