@@ -7,46 +7,52 @@ type Node struct {
 	right *Node
 }
 
-// Insert 插入（非递归）
-func Insert(root, node *Node) *Node {
+// Insert 插入
+func Insert(root *Node, val int) *Node {
 	if root == nil {
-		root = node
-		return root
-	}
-	temp := root
-	for true {
-		if root.val > node.val {
-			if root.left == nil {
-				root.left = node
-				break
-			}
-			root = root.left
-		} else if root.val == node.val {
-			root.time++
-			break
-		} else {
-			if root.right == nil {
-				root.right = node
-				break
-			}
-			root = root.right
+		return &Node{
+			val:  val,
+			time: 1,
 		}
 	}
-	return temp
-}
-
-// InsertWithRecursion 插入（递归）
-func InsertWithRecursion(root, node *Node) *Node {
-	if root == nil {
-		root = node
-		return root
-	}
-	if root.val > node.val {
-		root.left = InsertWithRecursion(root.left, node)
-	} else if root.val == node.val {
+	if root.val > val {
+		root.left = Insert(root.left, val)
+	} else if root.val == val {
 		root.time++
 	} else {
-		root.right = InsertWithRecursion(root.right, node)
+		root.right = Insert(root.right, val)
+	}
+	return root
+}
+
+// Delete 删除
+func Delete(root *Node, val int) *Node {
+	if root == nil {
+		return root
+	}
+	if root.val > val {
+		root.left = Delete(root.left, val)
+	} else if root.val < val {
+		root.right = Delete(root.right, val)
+	} else {
+		if root.time > 1 {
+			root.time--
+		} else {
+			if root.left != nil && root.right != nil {
+				temp := root.left
+				for temp.right != nil {
+					temp = temp.right
+				}
+				root = Delete(root, temp.val)
+				root.val = temp.val
+			} else {
+				if root.left != nil {
+					root = root.left
+				} else {
+					root = root.right
+				}
+			}
+		}
 	}
 	return root
 }
