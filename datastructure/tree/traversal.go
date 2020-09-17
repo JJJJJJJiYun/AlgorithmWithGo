@@ -1,6 +1,8 @@
 package tree
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func RecursivePreOrderTraversal(root *Node) {
 	if root == nil {
@@ -116,4 +118,71 @@ func HierarchicalTraversal(root *Node) {
 			queue = append(queue, temp.right)
 		}
 	}
+}
+
+func HierarchicalTraversalWithBreak(root *Node) {
+	curs := make([]*Node, 0)
+	nexts := make([]*Node, 0)
+	curs = append(curs, root)
+	for len(curs) > 0 {
+		temp := curs[0]
+		curs = curs[1:]
+		fmt.Printf("%v ", temp.val)
+		if temp.left != nil {
+			nexts = append(nexts, temp.left)
+		}
+		if temp.right != nil {
+			nexts = append(nexts, temp.right)
+		}
+		if len(curs) == 0 {
+			curs = nexts
+			nexts = make([]*Node, 0)
+			fmt.Println()
+		}
+	}
+}
+
+func HierarchicalTraversalWithBreakAndReverse(root *Node) {
+	curs := make([]*Node, 0)
+	nexts := make([]*Node, 0)
+	curs = append(curs, root)
+	lvl := 0
+	for len(curs) > 0 {
+		temp := curs[0]
+		curs = curs[1:]
+		fmt.Printf("%v ", temp.val)
+		if lvl%2 == 0 {
+			if temp.left != nil {
+				nexts = append(nexts, temp.left)
+			}
+			if temp.right != nil {
+				nexts = append(nexts, temp.right)
+			}
+		} else {
+			if temp.right != nil {
+				nexts = append(nexts, temp.right)
+			}
+			if temp.left != nil {
+				nexts = append(nexts, temp.left)
+			}
+		}
+		if len(curs) == 0 {
+			curs = reverseArray(nexts)
+			nexts = make([]*Node, 0)
+			fmt.Println()
+			lvl++
+		}
+	}
+}
+
+func reverseArray(arr []*Node) []*Node {
+	i, j := 0, len(arr)-1
+	for i < j {
+		temp := arr[i]
+		arr[i] = arr[j]
+		arr[j] = temp
+		i++
+		j--
+	}
+	return arr
 }
