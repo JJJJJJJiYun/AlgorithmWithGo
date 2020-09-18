@@ -1,6 +1,8 @@
-package tree
+package bst
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestRecursivePreOrderTraversal(t *testing.T) {
 	root := Insert(nil, 15)

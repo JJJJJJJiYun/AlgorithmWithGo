@@ -1,4 +1,4 @@
-package tree
+package bst
 
 type Node struct {
 	val   int
