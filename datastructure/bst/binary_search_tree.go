@@ -38,7 +38,7 @@ func Delete(root *Node, val int) *Node {
 		if root.time > 1 {
 			root.time--
 		} else {
-			if root.left != nil && root.right != nil {
+			if root.left != nil && root.right != nil { // 找到左子树中的最大值，并替换当前值
 				temp := root.left
 				for temp.right != nil {
 					temp = temp.right

@@ -30,8 +30,80 @@ func Insert(root *Node, val int) *Node {
 	return balanceTree(root)
 }
 
+// Delete 删除
+func Delete(root *Node, val int) *Node {
+	if root == nil {
+		return nil
+	}
+	if root.val > val {
+		root.left = Delete(root.left, val)
+	} else if root.val < val {
+		root.right = Delete(root.right, val)
+	} else {
+		if root.time > 1 {
+			root.time--
+		} else {
+			if root.left != nil && root.right != nil {
+				target := findExchangeNodeVal(root)
+				root = Delete(root, target)
+				root.val = target
+			} else {
+				if root.left != nil {
+					root = root.left
+				} else {
+					root = root.right
+				}
+			}
+		}
+	}
+	return balanceTree(root)
+}
+
+// findExchangeNodeVal 当root的度为2时需要找到要和root交换值的节点
+func findExchangeNodeVal(root *Node) int {
+	if root.left.height > root.right.height { // 如果左子树高度大于右子树，找到左子树中的最大值
+		temp := root.left
+		for temp.right != nil {
+			temp = temp.right
+		}
+		return temp.val
+	} else {
+		temp := root.right
+		for temp.left != nil {
+			temp = temp.left
+		}
+		return temp.val
+	}
+}
+
+// HierarchicalTraversalWithBreak 层次遍历并打印
+func HierarchicalTraversalWithBreak(root *Node) {
+	curs := make([]*Node, 0)
+	nexts := make([]*Node, 0)
+	curs = append(curs, root)
+	for len(curs) > 0 {
+		temp := curs[0]
+		curs = curs[1:]
+		fmt.Printf("%v ", temp.val)
+		if temp.left != nil {
+			nexts = append(nexts, temp.left)
+		}
+		if temp.right != nil {
+			nexts = append(nexts, temp.right)
+		}
+		if len(curs) == 0 {
+			curs = nexts
+			nexts = make([]*Node, 0)
+			fmt.Println()
+		}
+	}
+}
+
 // balanceTree 针对不同情况进行平衡操作
 func balanceTree(root *Node) *Node {
+	if root == nil {
+		return nil
+	}
 	if utils.Abs(diffHeightL2R(root)) < 2 {
 		updateHeight(root)
 	} else if diffHeightL2R(root) == 2 { // 左偏
@@ -95,27 +167,5 @@ func updateHeight(root *Node) {
 		root.height = root.right.height + 1
 	} else {
 		root.height = 0
-	}
-}
-
-func HierarchicalTraversalWithBreak(root *Node) {
-	curs := make([]*Node, 0)
-	nexts := make([]*Node, 0)
-	curs = append(curs, root)
-	for len(curs) > 0 {
-		temp := curs[0]
-		curs = curs[1:]
-		fmt.Printf("%v ", temp.val)
-		if temp.left != nil {
-			nexts = append(nexts, temp.left)
-		}
-		if temp.right != nil {
-			nexts = append(nexts, temp.right)
-		}
-		if len(curs) == 0 {
-			curs = nexts
-			nexts = make([]*Node, 0)
-			fmt.Println()
-		}
 	}
 }
