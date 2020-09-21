@@ -1,4 +1,4 @@
-package tree
+package avlt
 
 import (
 	"LeetCode/utils"
