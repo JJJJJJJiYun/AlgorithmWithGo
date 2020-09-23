@@ -1,4 +1,4 @@
-package o2
+package o4
 
 import "testing"
 
