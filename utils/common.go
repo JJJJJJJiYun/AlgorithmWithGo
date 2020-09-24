@@ -1,5 +1,13 @@
 package utils
 
+import "fmt"
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
 func Max(a, b int) int {
 	if a > b {
 		return a
@@ -19,4 +27,26 @@ func Abs(a int) int {
 		return -a
 	}
 	return a
+}
+
+func HierarchicalTraversalWithBreak(root *TreeNode) {
+	curs := make([]*TreeNode, 0)
+	nexts := make([]*TreeNode, 0)
+	curs = append(curs, root)
+	for len(curs) > 0 {
+		temp := curs[0]
+		curs = curs[1:]
+		fmt.Printf("%v ", temp.Val)
+		if temp.Left != nil {
+			nexts = append(nexts, temp.Left)
+		}
+		if temp.Right != nil {
+			nexts = append(nexts, temp.Right)
+		}
+		if len(curs) == 0 {
+			curs = nexts
+			nexts = make([]*TreeNode, 0)
+			fmt.Println()
+		}
+	}
 }
