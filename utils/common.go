@@ -8,6 +8,13 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+type TreeNodeWithParent struct {
+	Val    int
+	Left   *TreeNodeWithParent
+	Right  *TreeNodeWithParent
+	Parent *TreeNodeWithParent
+}
+
 func Max(a, b int) int {
 	if a > b {
 		return a
