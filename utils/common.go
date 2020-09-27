@@ -15,6 +15,11 @@ type TreeNodeWithParent struct {
 	Parent *TreeNodeWithParent
 }
 
+type LinkedNode struct {
+	Val  int
+	Next *LinkedNode
+}
+
 func Max(a, b int) int {
 	if a > b {
 		return a
@@ -55,5 +60,12 @@ func HierarchicalTraversalWithBreak(root *TreeNode) {
 			nexts = make([]*TreeNode, 0)
 			fmt.Println()
 		}
+	}
+}
+
+func PrintLinkedList(first *LinkedNode) {
+	for first != nil {
+		fmt.Printf("%v ", first.Val)
+		first = first.Next
 	}
 }

@@ -1,10 +1,13 @@
 package o6
 
-import "testing"
+import (
+	"LeetCode/utils"
+	"testing"
+)
 
 func TestReversePrintLinkedList(t *testing.T) {
 	type args struct {
-		node *Node
+		node *utils.LinkedNode
 	}
 	tests := []struct {
 		name string
@@ -12,13 +15,13 @@ func TestReversePrintLinkedList(t *testing.T) {
 	}{
 		{
 			name: "case1",
-			args: args{node: &Node{
-				val: 1,
-				next: &Node{
-					val: 2,
-					next: &Node{
-						val:  3,
-						next: nil,
+			args: args{node: &utils.LinkedNode{
+				Val: 1,
+				Next: &utils.LinkedNode{
+					Val: 2,
+					Next: &utils.LinkedNode{
+						Val:  3,
+						Next: nil,
 					},
 				},
 			}},
