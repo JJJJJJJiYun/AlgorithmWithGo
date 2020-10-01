@@ -20,6 +20,12 @@ type LinkedNode struct {
 	Next *LinkedNode
 }
 
+type ComplexLinkedNode struct {
+	Val     int
+	Next    *ComplexLinkedNode
+	Sibling *ComplexLinkedNode
+}
+
 func Max(a, b int) int {
 	if a > b {
 		return a
@@ -64,6 +70,13 @@ func HierarchicalTraversalWithBreak(root *TreeNode) {
 }
 
 func PrintLinkedList(first *LinkedNode) {
+	for first != nil {
+		fmt.Printf("%v ", first.Val)
+		first = first.Next
+	}
+}
+
+func PrintComplexLinkedList(first *ComplexLinkedNode) {
 	for first != nil {
 		fmt.Printf("%v ", first.Val)
 		first = first.Next
