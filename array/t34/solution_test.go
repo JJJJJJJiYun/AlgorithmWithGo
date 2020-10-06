@@ -6,5 +6,5 @@ import (
 )
 
 func TestSearchRange(t *testing.T) {
-	fmt.Println(searchRange([]int{2, 2}, 3))
+	fmt.Println(searchRange([]int{1, 1, 2, 3, 3, 3, 4, 5, 5}, 3))
 }

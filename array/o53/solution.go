@@ -1,5 +1,42 @@
 package o53
 
+func CountNumInSortedArray(nums []int, num int) int {
+	return findRightBorder(nums, num) - findLeftBorder(nums, num) + 1
+}
+
+// 1,1,2,3,3,3,4,5,5
+func findLeftBorder(nums []int, num int) int {
+	i, j := 0, len(nums)-1
+	for i <= j {
+		mid := i + (j-i)/2
+		if nums[mid] < num {
+			i = mid + 1
+		} else {
+			j = mid - 1
+		}
+	}
+	if i >= 0 && nums[i] == num {
+		return i
+	}
+	return -1
+}
+
+func findRightBorder(nums []int, num int) int {
+	i, j := 0, len(nums)-1
+	for i <= j {
+		mid := i + (j-i)/2
+		if nums[mid] <= num {
+			i = mid + 1
+		} else {
+			j = mid - 1
+		}
+	}
+	if i-1 <= len(nums)-1 && nums[i-1] == num {
+		return i - 1
+	}
+	return -1
+}
+
 // 一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。
 // 在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。
 
