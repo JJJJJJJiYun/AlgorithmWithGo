@@ -1,13 +1,8 @@
 package o53
 
 import (
-	"fmt"
 	"testing"
 )
-
-func TestMissingNumber(t *testing.T) {
-	fmt.Println(missingNumber([]int{0, 1, 3, 4, 5}))
-}
 
 func Test_findLeftBorder(t *testing.T) {
 	type args struct {
@@ -88,6 +83,59 @@ func TestCountNumInSortedArray(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := CountNumInSortedArray(tt.args.nums, tt.args.num); got != tt.want {
 				t.Errorf("CountNumInSortedArray() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestMissingNum(t *testing.T) {
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "case1",
+			args: args{nums: []int{0, 1, 3, 4, 5}},
+			want: 2,
+		},
+		{
+			name: "case2",
+			args: args{nums: []int{1}},
+			want: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := MissingNum(tt.args.nums); got != tt.want {
+				t.Errorf("MissingNum() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestFindNumMatchIndex(t *testing.T) {
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "case1",
+			args: args{nums: []int{-3, 1, 5, 6, 7}},
+			want: 1,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := FindNumMatchIndex(tt.args.nums); got != tt.want {
+				t.Errorf("FindNumMatchIndex() = %v, want %v", got, tt.want)
 			}
 		})
 	}
