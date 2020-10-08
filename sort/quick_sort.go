@@ -1,14 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
-
-func main() {
-	nums := []int{1, 9, 9, 8, 0, 7, 1, 7}
-	quickSort(nums)
-	fmt.Println(nums)
-}
+package sort
 
 func quickSort(nums []int) {
 	quickSortHelper(nums, 0, len(nums)-1)
