@@ -1,7 +1,7 @@
 package avlt
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"fmt"
 )
 

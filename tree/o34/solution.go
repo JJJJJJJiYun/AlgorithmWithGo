@@ -1,7 +1,7 @@
 package o34
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"fmt"
 )
 

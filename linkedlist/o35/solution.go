@@ -1,6 +1,6 @@
 package o35
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 func CopyComplexLinkedList(first *utils.ComplexLinkedNode) *utils.ComplexLinkedNode {
 	p := first

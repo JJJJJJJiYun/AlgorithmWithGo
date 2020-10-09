@@ -1,7 +1,7 @@
 package o52
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"reflect"
 	"testing"
 )

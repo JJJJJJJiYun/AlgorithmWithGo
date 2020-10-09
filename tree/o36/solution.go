@@ -1,6 +1,6 @@
 package o36
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 func ConvertTreeToLinkedList(root *utils.TreeNode) *utils.TreeNode {
 	if root == nil {

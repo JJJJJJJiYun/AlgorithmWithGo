@@ -1,6 +1,6 @@
 package o52
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 func FirstDuplicateNode(node1, node2 *utils.LinkedNode) *utils.LinkedNode {
 	p := node1

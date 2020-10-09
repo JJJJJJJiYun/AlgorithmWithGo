@@ -1,7 +1,7 @@
 package o36
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"fmt"
 	"testing"
 )

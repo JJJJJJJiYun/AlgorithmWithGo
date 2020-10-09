@@ -1,6 +1,6 @@
 package o55
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 func DepthOfTree(root *utils.TreeNode) int {
 	if root == nil {

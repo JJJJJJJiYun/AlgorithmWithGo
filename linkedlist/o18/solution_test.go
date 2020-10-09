@@ -1,7 +1,7 @@
 package o18
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"testing"
 )
 

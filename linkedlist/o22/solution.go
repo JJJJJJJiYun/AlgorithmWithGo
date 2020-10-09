@@ -1,6 +1,6 @@
 package o22
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 // 链表的倒数第k个节点
 

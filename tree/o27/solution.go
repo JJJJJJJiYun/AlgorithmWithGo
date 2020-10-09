@@ -1,6 +1,6 @@
 package o27
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 // 得到镜像树
 

@@ -1,7 +1,7 @@
 package o24
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"testing"
 )
 

@@ -1,6 +1,6 @@
 package o28
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 // 是否是镜像树
 

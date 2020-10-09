@@ -1,7 +1,7 @@
 package o54
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"fmt"
 )
 
@@ -27,7 +27,7 @@ func KthNode(root *utils.TreeNode, k int) int {
 	return -1
 }
 
-// 二叉树中序遍历（非递归）
+// 二叉树前序遍历（非递归）
 func PreOrderTraversal(root *utils.TreeNode) {
 	stack := make([]*utils.TreeNode, 0)
 	for root != nil || len(stack) != 0 {
@@ -44,7 +44,7 @@ func PreOrderTraversal(root *utils.TreeNode) {
 	}
 }
 
-// 二叉树前序遍历（非递归）
+// 二叉树中序遍历（非递归）
 func InOrderTraversal(root *utils.TreeNode) {
 	stack := make([]*utils.TreeNode, 0)
 	for root != nil || len(stack) != 0 {

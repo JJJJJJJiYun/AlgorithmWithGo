@@ -1,6 +1,6 @@
 package o24
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 func ReverseLinkedList(first *utils.LinkedNode) *utils.LinkedNode {
 	if first == nil || first.Next == nil {

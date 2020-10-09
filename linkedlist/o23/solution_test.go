@@ -1,7 +1,7 @@
 package o23
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"fmt"
 	"testing"
 )

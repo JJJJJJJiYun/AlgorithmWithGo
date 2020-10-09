@@ -1,6 +1,6 @@
 package o18
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 // 删除链表中的节点，时间复杂度O(1)
 

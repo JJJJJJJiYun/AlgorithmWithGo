@@ -1,6 +1,6 @@
 package o14
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 // dp[n] = max(dp[n-i]*dp[i])
 func CutRope(n int) int {

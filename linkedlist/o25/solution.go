@@ -1,6 +1,6 @@
 package o25
 
-import "LeetCode/utils"
+import "AlgorithWithGo/utils"
 
 func MergeTwoSortedLinkedList(first1, first2 *utils.LinkedNode) *utils.LinkedNode {
 	head := &utils.LinkedNode{}

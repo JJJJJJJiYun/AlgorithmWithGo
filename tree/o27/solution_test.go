@@ -1,7 +1,7 @@
 package o27
 
 import (
-	"LeetCode/utils"
+	"AlgorithWithGo/utils"
 	"testing"
 )
 
