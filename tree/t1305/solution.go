@@ -6,6 +6,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// 对两个排好序的数组排序，用归并！
 func getAllElements(root1 *TreeNode, root2 *TreeNode) []int {
 	order1 := inOrderTraversal(root1)
 	order2 := inOrderTraversal(root2)
@@ -44,18 +45,4 @@ func inOrderTraversal(root *TreeNode) []int {
 		}
 	}
 	return res
-}
-
-func getAllElementsGoRoutine(root1 *TreeNode, root2 *TreeNode) []int {
-
-}
-
-func dfs(root *TreeNode, rootVal int, ch chan int) {
-	if root == nil {
-		return
-	}
-	dfs(root.Left, rootVal, ch)
-	ch <- root.Val
-	dfs(root.Right, rootVal, ch)
-	return
 }
