@@ -20,6 +20,11 @@ type LinkedNode struct {
 	Next *LinkedNode
 }
 
+type ListNode struct {
+	Val  int
+	next *ListNode
+}
+
 type ComplexLinkedNode struct {
 	Val     int
 	Next    *ComplexLinkedNode
