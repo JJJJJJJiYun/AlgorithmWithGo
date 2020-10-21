@@ -38,3 +38,27 @@ func FirstDuplicateNode(node1, node2 *utils.LinkedNode) *utils.LinkedNode {
 		}
 	}
 }
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+// 1->2->3
+// 4->5->6
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	p, q := headA, headB
+	for p != q {
+		if p != nil {
+			p = p.Next
+		} else {
+			p = headB
+		}
+		if q != nil {
+			q = q.Next
+		} else {
+			q = headA
+		}
+	}
+	return p
+}

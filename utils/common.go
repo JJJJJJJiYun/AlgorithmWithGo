@@ -22,7 +22,7 @@ type LinkedNode struct {
 
 type ListNode struct {
 	Val  int
-	next *ListNode
+	Next *ListNode
 }
 
 type ComplexLinkedNode struct {
