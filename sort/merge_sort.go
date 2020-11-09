@@ -1,36 +1,21 @@
 package sort
 
 func MergeSort(nums []int) {
-	mergeSortHelper(nums, 0, len(nums)-1)
+	helper := make([]int, len(nums))
+	mergeSortHelper(nums, helper, 0, len(nums)-1)
 }
 
-func MergeSort2(nums []int) {
-	for i := 2; i < len(nums); i += i {
-		left := 0
-		right := left + i - 1
-		for right < len(nums) {
-			merge(nums, left, left+(right-left)/2, right)
-			left += i
-			right += i
-		}
-		if left < len(nums) {
-			merge(nums, left-i, left-1, len(nums)-1)
-		}
-	}
-}
-
-func mergeSortHelper(nums []int, left, right int) {
+func mergeSortHelper(nums, helper []int, left, right int) {
 	if left < right {
 		mid := left + (right-left)/2
-		mergeSortHelper(nums, left, mid)
-		mergeSortHelper(nums, mid+1, right)
-		merge(nums, left, left+(right-left)/2, right)
+		mergeSortHelper(nums, helper, left, mid)
+		mergeSortHelper(nums, helper, mid+1, right)
+		merge(nums, helper, left, mid, right)
 	}
 }
 
-func merge(nums []int, left, mid, right int) {
-	helper := make([]int, right-left+1)
-	i, j, k := left, mid+1, 0
+func merge(nums, helper []int, left, mid, right int) {
+	i, j, k := left, mid+1, left
 	for i <= mid && j <= right {
 		if nums[i] < nums[j] {
 			helper[k] = nums[i]
@@ -51,10 +36,23 @@ func merge(nums []int, left, mid, right int) {
 		j++
 		k++
 	}
-	k = 0
 	for left <= right {
-		nums[left] = helper[k]
-		k++
+		nums[left] = helper[left]
 		left++
+	}
+}
+
+func MergeSort2(nums []int) {
+	helper := make([]int, len(nums))
+	for i := 1; i < len(nums); i += i {
+		left := 0
+		for left+2*i-1 < len(nums) {
+			merge(nums, helper, left, left+i-1, left+2*i-1)
+			left += 2 * i
+		}
+		// 如果最后还剩下超过步长的元素，那么这些元素merge一次
+		if left < len(nums)-i {
+			merge(nums, helper, left, left+i-1, len(nums)-1)
+		}
 	}
 }

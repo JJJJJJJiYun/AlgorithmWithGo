@@ -15,7 +15,15 @@ func TestMergeSort(t *testing.T) {
 	}{
 		{
 			name: "case1",
-			args: args{nums: []int{77, 1, 9, 9, 8, 0, 7, 1, 7}},
+			args: args{nums: []int{7, 17, 1, 9, 9, 8, 0, 7, 1, 7}},
+		},
+		{
+			name: "case2",
+			args: args{nums: []int{}},
+		},
+		{
+			name: "case3",
+			args: args{nums: []int{7}},
 		},
 	}
 	for _, tt := range tests {
@@ -37,6 +45,14 @@ func TestMergeSort2(t *testing.T) {
 		{
 			name: "case1",
 			args: args{nums: []int{7, 17, 1, 9, 9, 8, 0, 7, 1, 7}},
+		},
+		{
+			name: "case2",
+			args: args{nums: []int{}},
+		},
+		{
+			name: "case3",
+			args: args{nums: []int{3, 1, 7}},
 		},
 	}
 	for _, tt := range tests {
