@@ -20,11 +20,11 @@ func MinK(nums []int, k int) []int {
 func getIndex(nums []int, left, right int) int {
 	pivot := nums[left]
 	for left < right {
-		for left < right && nums[right] > pivot {
+		for left < right && nums[right] >= pivot {
 			right--
 		}
 		nums[left] = nums[right]
-		for left < right && nums[left] < pivot {
+		for left < right && nums[left] <= pivot {
 			left++
 		}
 		nums[right] = nums[left]
