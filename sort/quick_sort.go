@@ -1,6 +1,6 @@
 package sort
 
-func quickSort(nums []int) {
+func QuickSort(nums []int) {
 	quickSortHelper(nums, 0, len(nums)-1)
 }
 
@@ -13,17 +13,17 @@ func quickSortHelper(nums []int, left, right int) {
 }
 
 func getIndex(nums []int, left, right int) int {
-	temp := nums[left]
+	pivot := nums[left]
 	for left < right {
-		for left < right && temp <= nums[right] {
+		for left < right && pivot <= nums[right] {
 			right--
 		}
 		nums[left] = nums[right]
-		for left < right && nums[left] <= temp {
+		for left < right && nums[left] <= pivot {
 			left++
 		}
 		nums[right] = nums[left]
 	}
-	nums[left] = temp
+	nums[left] = pivot
 	return left
 }
