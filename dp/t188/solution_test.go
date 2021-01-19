@@ -6,5 +6,5 @@ import (
 )
 
 func TestMaxProfit(t *testing.T) {
-	fmt.Println(maxProfit(2, []int{3, 2, 6, 5, 0, 3}))
+	fmt.Println(maxProfit2(2, []int{2, 4, 1}))
 }
