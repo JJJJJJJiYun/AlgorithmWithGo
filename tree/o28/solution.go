@@ -1,19 +1,21 @@
 package o28
 
-import "AlgorithWithGo/utils"
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
-// 是否是镜像树
+func isSymmetric(root *TreeNode) bool {
+	return isSymmetricHelper(root, root)
+}
 
-func IsMirrorTree(root *utils.TreeNode) bool {
-	var helper func(left, right *utils.TreeNode) bool
-	helper = func(left, right *utils.TreeNode) bool {
-		if left == nil && right == nil {
-			return true
-		}
-		if left != nil && right != nil && left.Val == right.Val {
-			return helper(left.Left, right.Right) && helper(left.Right, right.Left)
-		}
+func isSymmetricHelper(left, right *TreeNode) bool {
+	if left == nil && right == nil {
 		return false
 	}
-	return helper(root, root)
+	if left != nil && right != nil && left.Val == right.Val {
+		return isSymmetricHelper(left.Left, right.Right) && isSymmetricHelper(left.Right, right.Left)
+	}
+	return false
 }
