@@ -1,7 +1,7 @@
 package microsoft
 
 // 创建一个拷贝节点
-func copyRandomList(head *Node) *Node {
+func copyRandomList(head *NodeWithRandom) *NodeWithRandom {
 	// 如果给定链表为空，返回空
 	if head == nil {
 		return nil
@@ -9,7 +9,7 @@ func copyRandomList(head *Node) *Node {
 	// 对于每一个链表节点，在它后面创建一个它自身的拷贝
 	p := head
 	for p != nil {
-		temp := &Node{
+		temp := &NodeWithRandom{
 			Val:  p.Val,
 			Next: p.Next,
 		}

@@ -1,9 +1,16 @@
 package microsoft
 
-type Node struct {
+type NodeWithRandom struct {
 	Val    int
-	Next   *Node
-	Random *Node
+	Next   *NodeWithRandom
+	Random *NodeWithRandom
+}
+
+type NodeWithNext struct {
+	Val   int
+	Left  *NodeWithNext
+	Right *NodeWithNext
+	Next  *NodeWithNext
 }
 
 type TreeNode struct {
