@@ -1,10 +1,10 @@
 package microsoft
 
 func mergeKLists(lists []*ListNode) *ListNode {
-	return merge(lists, 0, len(lists)-1)
+	return mergeHelper(lists, 0, len(lists)-1)
 }
 
-func merge(lists []*ListNode, l, r int) *ListNode {
+func mergeHelper(lists []*ListNode, l, r int) *ListNode {
 	if l == r {
 		return lists[l]
 	}
@@ -12,5 +12,5 @@ func merge(lists []*ListNode, l, r int) *ListNode {
 		return nil
 	}
 	mid := (l + r) >> 1
-	return mergeTwoLists(merge(lists, l, mid), merge(lists, mid+1, r))
+	return mergeTwoLists(mergeHelper(lists, l, mid), mergeHelper(lists, mid+1, r))
 }
