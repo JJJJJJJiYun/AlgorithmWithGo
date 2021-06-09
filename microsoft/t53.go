@@ -1,17 +1,14 @@
 package microsoft
 
 func maxSubArray(nums []int) int {
-	curMax := 0
-	max := nums[0]
-	for _, num := range nums {
-		if curMax < 0 && num > curMax {
-			curMax = num
+	cur, res := nums[0], nums[0]
+	for i := 1; i < len(nums); i++ {
+		if cur+nums[i] > nums[i] {
+			cur += nums[i]
 		} else {
-			curMax += num
+			cur = nums[i]
 		}
-		if max < curMax {
-			max = curMax
-		}
+		res = max(res, cur)
 	}
-	return max
+	return res
 }
