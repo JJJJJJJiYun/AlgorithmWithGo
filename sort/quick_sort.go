@@ -1,5 +1,13 @@
 package sort
 
+const (
+	a = 1
+)
+
+var (
+	b = [a]int{}
+)
+
 func QuickSort(nums []int) {
 	quickSortHelper(nums, 0, len(nums)-1)
 }

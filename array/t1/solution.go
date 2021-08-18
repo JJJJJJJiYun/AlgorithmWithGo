@@ -10,7 +10,6 @@ func twoSum(nums []int, target int) []int {
 			return []int{j, i}
 		}
 		recorder[num] = i
-
 	}
 	return []int{-1, -1}
 }
